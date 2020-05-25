@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Log.w("edit 넘어가야 할 값 : ","안드로이드에서 서버로 연결요청");
 
-                // Buffered가 잘못된듯.
                 try {
                     dos = new DataOutputStream(socket.getOutputStream());   // output에 보낼꺼 넣음
                     dis = new DataInputStream(socket.getInputStream());     // input에 받을꺼 넣어짐
