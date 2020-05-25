@@ -18,6 +18,7 @@
         </activity>
         <!--socket패키지 추가-->
         <activity android:name=".socket_"/>
+        <activity android:name=".combine"/>
     </application>
 
 </manifest>

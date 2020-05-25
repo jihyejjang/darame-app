@@ -7,25 +7,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시작페이지" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="206dp"
-        android:layout_height="198dp"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/ic_squirrel"
-        tools:ignore="VectorDrawableCompat" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="195dp"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/ic_squirrel"
-        tools:ignore="VectorDrawableCompat" />
-
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="소켓연결" />
 </LinearLayout>
 
 
