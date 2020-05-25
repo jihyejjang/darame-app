@@ -1,11 +1,12 @@
 //socket연결(1번째 페이지)
 package com.example.daram;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.util.Log;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-        import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class socket_ extends AppCompatActivity {
     @Override
@@ -13,8 +14,15 @@ public class socket_ extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.socket_);
 
-        Intent intent=getIntent();
-        Log.d("ACTIVITY_LC",intent.getStringExtra("message")); //로그로 찍어주기
+        Button button2 = (Button) findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),combine.class);  //다음화면 연결
+                intent.putExtra("message", "소켓연결");
+                startActivity(intent);
+            }
+        });
     }
 
 }

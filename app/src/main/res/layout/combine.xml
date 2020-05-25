@@ -19,7 +19,7 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="match_parent"
+        android:layout_width="206dp"
         android:layout_height="195dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:scaleType="fitCenter"

@@ -9,6 +9,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private Object Button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,20 +19,8 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),socket_.class);
-//                다음화면 연결
+                Intent intent = new Intent(getApplicationContext(),socket_.class);  //다음화면 연결
                 intent.putExtra("message", "메인");
-                startActivity(intent);
-            }
-        });
-
-        Button button2 = (Button) findViewById(R.id.button2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),combine.class);
-//                다음화면 연결
-                intent.putExtra("message", "소켓연결");
                 startActivity(intent);
             }
         });
