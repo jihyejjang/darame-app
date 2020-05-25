@@ -1,3 +1,4 @@
+//합성페이지(2번째)
 package com.example.daram;
 import android.content.Intent;
 import android.net.Uri;

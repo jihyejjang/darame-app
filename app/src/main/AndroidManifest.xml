@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--socket패키지 추가-->
+        <activity android:name=".socket_"/>
     </application>
 
 </manifest>
