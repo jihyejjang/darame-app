@@ -41,5 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent3);
             }
         });
+
+        Button button4=(Button)findViewById(R.id.newActivity4);
+        button4.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent4=new Intent(getApplicationContext(),SocketActivity.class);
+                startActivity(intent4);
+            }
+        });
+
     }
 }
