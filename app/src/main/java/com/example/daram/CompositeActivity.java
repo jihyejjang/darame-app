@@ -1,12 +1,12 @@
 package com.example.daram;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class CompositeActivity extends AppCompatActivity {
@@ -17,7 +17,7 @@ public class CompositeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView imageView1 = (ImageView) findViewById(R.id.imageView1) ;
-        imageView1.setImageResource(R.drawable.daram) ;
+        imageView1.setImageResource(R.drawable.ic_squirrel) ;
 
         Button button=(Button)findViewById(R.id.newActivity);
         button.setOnClickListener(new View.OnClickListener(){

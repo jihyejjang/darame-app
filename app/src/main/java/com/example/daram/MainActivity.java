@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView imageView1 = (ImageView) findViewById(R.id.imageView1) ;
-        imageView1.setImageResource(R.drawable.daram) ;
+        imageView1.setImageResource(R.drawable.activity_main) ;
 
         Button button=(Button)findViewById(R.id.newActivity);
         button.setOnClickListener(new View.OnClickListener(){
