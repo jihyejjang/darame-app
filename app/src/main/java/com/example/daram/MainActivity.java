@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.net.Uri;
 
 public class MainActivity extends AppCompatActivity {
+    private final int GET_GALLERY_IMAGE = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +39,17 @@ public class MainActivity extends AppCompatActivity {
         Button button3=(Button)findViewById(R.id.newActivity3);
         button3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent3=new Intent(getApplicationContext(),MosaicActivity.class);
-                startActivity(intent3);
+                Intent intent3=new Intent(Intent.ACTION_VIEW,Uri.parse("content://media/internal/images/media"));
+                startActivityForResult(intent3,GET_GALLERY_IMAGE);
             }
+
         });
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri selectedImageUri = data.getData();
+            imageview.setImageURI(selectedImageUri);
+        }
 }
