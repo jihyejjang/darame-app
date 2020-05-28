@@ -8,7 +8,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 public class CompositeActivity extends AppCompatActivity {
 
     @Override
