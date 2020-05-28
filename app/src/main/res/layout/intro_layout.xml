@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/ex1"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="479dp"-->
+    <!--        android:scaleType="fitCenter"-->
+    <!--        android:src="@drawable/darame" />-->
+
+
+    <ImageView
+        android:id="@+id/ex1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/darame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
+        />
+
+</LinearLayout>

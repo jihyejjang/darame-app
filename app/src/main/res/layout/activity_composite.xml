@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="206dp"
-        android:layout_height="198dp"
+        android:layout_height="188dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/ic_squirrel"
