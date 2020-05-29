@@ -1,46 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/newActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HOME"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="206dp"
-        android:layout_height="188dp"
-        android:layout_centerleft="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/ic_squirrel"
-        tools:ignore="VectorDrawableCompat" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_toRightOf="@id/imageView"
-        android:layout_width="206dp"
-        android:layout_height="188dp"
-        android:layout_centerright="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/ic_squirrel"
-        tools:ignore="VectorDrawableCompat" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="100dp"
-        android:layout_height="5dp"
-        android:layout_above="@id/imageView"
-        android:text="배경"
-        android:textSize="30sp" />
-
-
-</RelativeLayout>
-
-
-
+    <Button
+        android:id="@+id/newActivity2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</LinearLayout>
