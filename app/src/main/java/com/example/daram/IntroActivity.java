@@ -27,7 +27,7 @@ public class IntroActivity extends AppCompatActivity {
     private DataOutputStream dos;
     private DataInputStream dis;
 
-    private String ip = "172.16.24.113";            // IP 번호
+    private String ip = "172.16.24.152";            // IP 번호
     private int port = 9999;                          // port 번호
 
     protected void onCreate(Bundle savedInstanceState) {
