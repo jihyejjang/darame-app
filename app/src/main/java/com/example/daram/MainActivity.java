@@ -1,20 +1,14 @@
 package com.example.daram;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
     private final int GET_GALLERY_IMAGE = 200;
@@ -56,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Button button5=(Button)findViewById(R.id.newActivity5);
-        button5.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent5=new Intent(getApplicationContext(),SocketActivity.class);
-                startActivity(intent5);
-            }
-        });
+//        Button button5=(Button)findViewById(R.id.newActivity5);
+//        button5.setOnClickListener(new View.OnClickListener(){
+//            public void onClick(View v){
+//                Intent intent5=new Intent(getApplicationContext(),SocketActivity.class);
+//                startActivity(intent5);
+//            }
+//        });
 
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

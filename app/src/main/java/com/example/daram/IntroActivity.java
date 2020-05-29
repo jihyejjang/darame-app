@@ -92,11 +92,9 @@ public class IntroActivity extends AppCompatActivity {
                         while (true) {
                             //line = (String) dis.readUTF();
                             line2 = (int) dis.read();
-                            //Log.w("서버에서 받아온 값 ", "" + line);
-                            //Log.w("서버에서 받아온 값 ", "" + line2);
 
                             if (line2 > 0) {
-                                Log.w("------서버에서 받아온 값 ", "" + line2);
+                                Log.w("------서버에서 받아온 값 ", "" + line2); //내 log에 찍힘.
                                 dos.writeUTF("하나 받았습니다. : " + line2);  //주피터로 보내짐.
                                 dos.flush();
                             }

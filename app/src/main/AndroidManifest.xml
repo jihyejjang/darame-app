@@ -27,7 +27,6 @@
         android:roundIcon="@mipmap/ic_launcher_darame_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SocketActivity"></activity>
         <activity android:name=".CameraActivity" />
         <activity android:name=".SaveActivity" />
         <activity android:name=".SegmentationActivity" />
