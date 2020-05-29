@@ -18,9 +18,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class SocketActivity extends AppCompatActivity implements View.OnClickListener {
-
     Button connect_btn;                 // ip 받아오는 버튼
-
     EditText ip_edit;               // ip 에디트
     TextView show_text;             // 서버에서온거 보여주는 에디트
     // 소켓통신에 필요한것
@@ -45,7 +43,6 @@ public class SocketActivity extends AppCompatActivity implements View.OnClickLis
 
         connect_btn = (Button)findViewById(R.id.connect_btn);
         connect_btn.setOnClickListener(this);
-
         ip_edit = (EditText)findViewById(R.id.ip_edit);
         show_text = (TextView)findViewById(R.id.show_text);
 
@@ -59,7 +56,7 @@ public class SocketActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    // 로그인 정보 db에 넣어주고 연결시켜야 함.
+    // 로그인 정보 db에 넣어주고 연결시켜야 함. connect_btn누르면 실행되는 함수
     void connect(){
         mHandler = new Handler();
         Log.w("connect","연결 하는중");
@@ -67,11 +64,11 @@ public class SocketActivity extends AppCompatActivity implements View.OnClickLis
         Thread checkUpdate = new Thread() {
             public void run() {
                 // ip받기
-                String newip = String.valueOf(ip_edit.getText());
+                String newip = String.valueOf(ip_edit.getText());  //ip값 입력된것을 가져옴.
 
                 // 서버 접속
                 try {
-                    socket = new Socket(newip, port);
+                    socket = new Socket(newip, port);  //연결됨.
                     Log.w("서버 접속됨", "서버 접속됨");
                 } catch (IOException e1) {
                     Log.w("서버접속못함", "서버접속못함");
@@ -84,7 +81,7 @@ public class SocketActivity extends AppCompatActivity implements View.OnClickLis
                 try {
                     dos = new DataOutputStream(socket.getOutputStream());   // output에 보낼꺼 넣음
                     dis = new DataInputStream(socket.getInputStream());     // input에 받을꺼 넣어짐
-                    dos.writeUTF("안드로이드에서 서버로 연결요청");
+                    dos.writeUTF("안드로이드에서 서버로 연결요청");  //str가 쥬피터에서 출력됨.
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -105,7 +102,7 @@ public class SocketActivity extends AppCompatActivity implements View.OnClickLis
 
                             if(line2 > 0) {
                                 Log.w("------서버에서 받아온 값 ", "" + line2);
-                                dos.writeUTF("하나 받았습니다. : " + line2);
+                                dos.writeUTF("하나 받았습니다. : " + line2);  //주피터로 보내짐.
                                 dos.flush();
                             }
                             if(line2 == 99) {
