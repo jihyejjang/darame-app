@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Button button4=(Button)findViewById(R.id.newActivity4);
-        button4.setOnClickListener(new View.OnClickListener(){
+        Button button5=(Button)findViewById(R.id.newActivity5);
+        button5.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent4=new Intent(getApplicationContext(),SocketActivity.class);
-                startActivity(intent4);
+                Intent intent5=new Intent(getApplicationContext(),SocketActivity.class);
+                startActivity(intent5);
             }
         });
 

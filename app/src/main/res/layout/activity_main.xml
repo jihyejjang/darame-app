@@ -16,7 +16,7 @@
         android:src="@drawable/darame" />
 
     <Button
-        android:id="@+id/newActivity4"
+        android:id="@+id/newActivity5"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_style"
@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/btn_style"
         android:text="카메라"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
