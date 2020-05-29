@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int REQUEST_CODE = 0;
+    private final int GET_GALLERY_IMAGE = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(intent3);
                 Intent intent3 = new Intent(Intent.ACTION_PICK);
                 intent3.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                startActivityForResult(intent3, REQUEST_CODE);
+                startActivityForResult(intent3, GET_GALLERY_IMAGE);
             }
 
         });
@@ -64,39 +64,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if(requestCode == REQUEST_CODE)
-        {
-            if(resultCode == RESULT_OK)
-            {
-                try{
-                    InputStream in = getContentResolver().openInputStream(data.getData());
-
-                    Bitmap img = BitmapFactory.decodeStream(in);
-                    in.close();
-
-//                    ImageView imageView = findViewById(R.id.image);
-//                    imageView.setImageBitmap(img);
-                    Intent intent4 = new Intent(getApplicationContext(), MosaicActivity.class);
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    img.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                    byte[] byteArray = stream.toByteArray();
-                    intent4.putExtra("image",byteArray);
-                    startActivity(intent4);
-
-
-                }catch(Exception e)
-                {
-
-                }
-            }
-            else if(resultCode == RESULT_CANCELED)
-            {
-                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
-            }
+        if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri selectedImageUri = data.getData();
+//            imageview.setImageURI(selectedImageUri);
+//            imageview2.setImageURI(selectedImageUri);
+            Intent intent4 = new Intent(getApplicationContext(), MosaicActivity.class);
+//            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//            img.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//            byte[] byteArray = stream.toByteArray();
+            intent4.putExtra("image",selectedImageUri);
+            startActivity(intent4);
         }
+
     }
 
 }
