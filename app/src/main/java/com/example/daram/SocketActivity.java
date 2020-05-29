@@ -1,8 +1,7 @@
 package com.example.daram;
 
-
-import android.os.Handler;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,14 +11,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
@@ -41,7 +35,7 @@ public class SocketActivity extends AppCompatActivity implements View.OnClickLis
     private DataOutputStream dos;
     private DataInputStream dis;
 
-    private String ip = "172.16.24.168";            // IP 번호
+    private String ip = "172.16.24.113";            // IP 번호
     private int port = 9999;                          // port 번호
 
     @Override
@@ -74,7 +68,6 @@ public class SocketActivity extends AppCompatActivity implements View.OnClickLis
             public void run() {
                 // ip받기
                 String newip = String.valueOf(ip_edit.getText());
-//                Log.w("connect",newip);
 
                 // 서버 접속
                 try {

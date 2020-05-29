@@ -60,6 +60,5 @@ public class CompositeActivity extends AppCompatActivity {
             }
 
         }
-
     }
 }
