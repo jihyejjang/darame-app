@@ -1,16 +1,27 @@
 package com.example.daram;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.Socket;
 
 
 public class CompositeActivity extends AppCompatActivity {
+
+    private Socket socket;
+    private DataOutputStream dos;
+    private DataInputStream dis;
 
     private final int GET_GALLERY_IMAGE = 200;
     private ImageView imageview1;
@@ -44,6 +55,7 @@ public class CompositeActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(num==true)
@@ -60,5 +72,40 @@ public class CompositeActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public String getPathFromUri(Uri uri) throws Exception {
+
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null );
+
+        cursor.moveToNext();
+
+        String path = cursor.getString( cursor.getColumnIndex( "_data" ) );
+
+        AutoCloseable c = null;
+        c.close();
+
+        return path;
+    }
+
+    public String getFileName(Uri uri) {
+        String result = null;
+        if (uri.getScheme().equals("content")) {
+            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+            try {
+                if (cursor != null && cursor.moveToFirst()) {
+                    result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                }
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
+                }
+            }
+        }
+        if (result == null) {
+            result = uri.getLastPathSegment();
+        }
+        return result;
     }
 }

@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,15 +12,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
     private final int GET_GALLERY_IMAGE = 200;
@@ -52,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         , 1);
             }
         }
-        Button camera_btn=(Button)findViewById(R.id.newActivity);
+        Button camera_btn=(Button)findViewById(R.id.newActivity);  //카메라
         camera_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -63,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button2=(Button)findViewById(R.id.newActivity2);
+        Button button2=(Button)findViewById(R.id.newActivity2); //합성
         button2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent2=new Intent(getApplicationContext(),CompositeActivity.class);
@@ -71,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button3=(Button)findViewById(R.id.newActivity3);
+        Button button3=(Button)findViewById(R.id.newActivity3);  //모자이크
         button3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 num=true;
@@ -81,15 +76,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
-        Button button5=(Button)findViewById(R.id.newActivity5);
-        button5.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent5=new Intent(getApplicationContext(),SocketActivity.class);
-                startActivity(intent5);
-            }
-        });
-
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -102,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent4);
             }
         }
-        else//카메라촬영한거
+        else if(num==false) //카메라촬영한거
         {
             super.onActivityResult(requestCode, resultCode, data);
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
