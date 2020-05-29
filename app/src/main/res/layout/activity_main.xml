@@ -16,18 +16,6 @@
         android:src="@drawable/darame" />
 
     <Button
-        android:id="@+id/newActivity5"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_style"
-        android:text="소켓연결"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_gravity="center" />
-
-    <Button
         android:id="@+id/newActivity"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
