@@ -50,14 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-//        Button button5=(Button)findViewById(R.id.newActivity5);
-//        button5.setOnClickListener(new View.OnClickListener(){
-//            public void onClick(View v){
-//                Intent intent5=new Intent(getApplicationContext(),SocketActivity.class);
-//                startActivity(intent5);
-//            }
-//        });
-
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
