@@ -27,7 +27,7 @@ public class IntroActivity extends AppCompatActivity {
     private DataOutputStream dos;
     private DataInputStream dis;
 
-    private String ip = "172.16.24.113";            // IP 번호
+    private String ip = "172.16.26.172";            // IP 번호
     private int port = 9999;                          // port 번호
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class IntroActivity extends AppCompatActivity {
         Thread checkUpdate = new Thread() {
             public void run() {
                 // ip받기
-                String newip ="172.16.24.152"; //ip값
+                String newip ="172.16.26.172"; //ip값
                 // 서버 접속
                 try {
                     socket = new Socket(newip, port);  //연결됨.
