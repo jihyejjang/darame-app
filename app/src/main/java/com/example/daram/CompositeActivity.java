@@ -52,6 +52,5 @@ public class CompositeActivity extends AppCompatActivity {
             imageview2.setImageURI(selectedImageUri);
 
         }
-
     }
 }
