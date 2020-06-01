@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -54,17 +56,24 @@ public class TestActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri selectedImageUri = data.getData();
-//            sendPicture(selectedImageUri);
             img_view.setImageURI(selectedImageUri);
 //            Log.d("ing", "sendPicture부른다~");
             Cursor c = getContentResolver().query(Uri.parse(selectedImageUri.toString()), null,null,null,null);
             c.moveToNext();
             String absolutePath = c.getString(c.getColumnIndex(MediaStore.MediaColumns.DATA));
             Log.d("절대경로",absolutePath);
-//            https://gyjmobile.tistory.com/entry/Bitmap-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC-byte%EB%A1%9C-%EB%B0%94%EB%A1%9C-%EB%B3%B4%EB%82%B8%EB%8B%A4%EA%B3%A0-%EA%B7%B8%EA%B2%83%EB%8F%84-%EC%86%8C%EC%BC%93%EC%9C%BC%EB%A1%9C
-//            read_image(absolutePath);
+//            byte a[]=bitmapToByteArray(bitmap);
+//            Log.d("이미지데이터", String.valueOf(a.length));
         }
 
+    }
+
+
+    public byte[] bitmapToByteArray( Bitmap bitmap ) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream() ;
+        bitmap.compress( Bitmap.CompressFormat.JPEG, 100, stream) ;
+        byte[] byteArray = stream.toByteArray() ;
+        return byteArray ;
     }
 
 //    public void read_image(String absolutePath)
