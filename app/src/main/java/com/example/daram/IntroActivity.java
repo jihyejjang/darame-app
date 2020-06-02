@@ -3,11 +3,16 @@ package com.example.daram;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.Socket;
 
 
 public class IntroActivity extends AppCompatActivity {
@@ -15,15 +20,15 @@ public class IntroActivity extends AppCompatActivity {
     private Handler mHandler;
 
 //    private Socket socket;
-
-    private BufferedReader networkReader;
-    private PrintWriter networkWriter;
-
+//
+//    private BufferedReader networkReader;
+//    private PrintWriter networkWriter;
+//
 //    private DataOutputStream dos;
 //    private DataInputStream dis;
 //
-//    private String ip = "172.16.24.152";            // IP 번호
-//    private int port = 9999;                          // port 번호
+//    private String ip = "192.168.0.59";            // IP : .py 돌아가는 python server ip 입력 (Cmd -> ipconfig)
+//    private int port = 9999;                          // port 번호 : 9999고정
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +37,14 @@ public class IntroActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable(){
             @Override
             public void run() {
-//                connect();
-                Intent intent = new Intent (getApplicationContext(), MainActivity.class);
+                //connect();
+                Intent intent = new Intent (getApplicationContext(), TestActivity.class);
                 startActivity(intent); //다음화면으로 넘어감
                 finish();
+                Log.d("인트로", "어플 실행");
             }
         },3000); //3초 뒤에 Runner객체 실행하도록
-       //소켓연결
+        //소켓연결
     }
 
     @Override
@@ -55,7 +61,7 @@ public class IntroActivity extends AppCompatActivity {
 //        Thread checkUpdate = new Thread() {
 //            public void run() {
 //                // ip받기
-//                String newip ="172.16.24.152"; //ip값
+//                String newip = ip; //ip값
 //                // 서버 접속
 //                try {
 //                    socket = new Socket(newip, port);  //연결됨.

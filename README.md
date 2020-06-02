@@ -4,6 +4,7 @@
 
 -----------------
 
-- ~4월: [segmentation 관련 스터디](https://github.com/sohyeon98720/deepLearning_study#%EC%BD%94%EB%93%9C%EC%9A%94%EC%95%BD-segmentation)
+### 주제: DeepLearning-segmentation을 이용한 사진 편집 어플
 
-- 어플리케이션에서 소켓통신할 python파일 (https://github.com/jihyejjang/CNN-PhotoEditor-App/tree/master/darame)
+- 기능: 배경합성, 모자이크<br>
+//- ~4월: [segmentation 관련 스터디](https://github.com/sohyeon98720/deepLearning_study#%EC%BD%94%EB%93%9C%EC%9A%94%EC%95%BD-segmentation)
