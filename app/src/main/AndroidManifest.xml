@@ -8,6 +8,10 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+    <!--사진전송-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!--    소켓연결-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -33,6 +37,7 @@
         <activity android:name=".GalleryActivity" />
         <activity android:name=".MosaicActivity" />
         <activity android:name=".CompositeActivity" />
+        <activity android:name=".Send_img" />
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".IntroActivity">
             <intent-filter>

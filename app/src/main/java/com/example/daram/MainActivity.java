@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         Button button2=(Button)findViewById(R.id.newActivity2); //합성
         button2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent2=new Intent(getApplicationContext(),CompositeActivity.class);
+                Intent intent2=new Intent(getApplicationContext(),Send_img.class); //사진전송class로 연동
                 startActivity(intent2);
             }
         });
@@ -76,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()  //사진전송
+                .permitDiskReads()
+                .permitDiskWrites()
+                .permitNetwork().build());
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

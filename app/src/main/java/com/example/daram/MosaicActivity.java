@@ -29,7 +29,7 @@ public class MosaicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mosaic);
 
         // 버튼
-        send_btn = (Button) findViewById(R.id.button2);
+        Button send_btn = (Button) findViewById(R.id.button2);
 
 
         // 내부저장소 내의 폴더명과 파일명
