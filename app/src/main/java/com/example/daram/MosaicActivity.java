@@ -6,57 +6,63 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.OpenableColumns;
+import android.os.StrictMode;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.FileInputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.Socket;
 
 public class MosaicActivity extends AppCompatActivity {
     @Override
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mosaic);
+
+        if (android.os.Build.VERSION.SDK_INT > 9)
+        {
+            StrictMode.ThreadPolicy policy = new
+                    StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         Intent intent = getIntent();
-        Uri receiveUri= intent.getParcelableExtra("image");
+        Uri receiveUri = intent.getParcelableExtra("image");
         Log.d("사진 선택함", "사진 선택");
-        ImageView imageView1 = (ImageView)findViewById(R.id.imageView1);
+        ImageView imageView1 = (ImageView) findViewById(R.id.imageView1);
         imageView1.setImageURI(receiveUri);
 
-        Button button=(Button)findViewById(R.id.newActivity);
-        button.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+
+        Button button = (Button) findViewById(R.id.newActivity);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
 
-        Button button2=(Button)findViewById(R.id.newActivity2);
-        button2.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent=new Intent(getApplicationContext(),SaveActivity.class);
+        Button button2 = (Button) findViewById(R.id.newActivity2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SaveActivity.class);
                 startActivity(intent);
             }
         });
 
         Button send_btn = (Button) findViewById(R.id.newActivity3);
-
-        send_btn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        send_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 mosaicThread th = new mosaicThread();
                 Log.d("스레드 시작", "스레드 시작");
                 th.start();
@@ -66,46 +72,12 @@ public class MosaicActivity extends AppCompatActivity {
     }
 
     class mosaicThread extends Thread {
-        String lineEnd = "\r\n";    // 통신할때의 데이터 개행문자
-        String twoHyphens = "--";
-        String boundary = "*****";
+
+        private String ip = "172.16.26.172";            // IP : .py 돌아가는 python server ip 입력 (Cmd -> ipconfig)
+        private int port = 9999;                          // port 번호 : 9999고정
+
+
         @SuppressLint("HandlerLeak")
-        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        public String getPathFromUri(Uri uri) throws Exception {
-
-            Cursor cursor = getContentResolver().query(uri, null, null, null, null );
-
-            cursor.moveToNext();
-
-            String path = cursor.getString( cursor.getColumnIndex( "_data" ) );
-
-            AutoCloseable c = null;
-            c.close();
-
-            return path;
-
-        }
-
-        public String getFileName(Uri uri) {
-            String result = null;
-            if (uri.getScheme().equals("content")) {
-                Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-                try {
-                    if (cursor != null && cursor.moveToFirst()) {
-                        result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                    }
-                } finally {
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                }
-            }
-            if (result == null) {
-                result = uri.getLastPathSegment();
-            }
-            return result;
-        }
-
         Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -114,87 +86,90 @@ public class MosaicActivity extends AppCompatActivity {
             }
         };
 
+
+
+        public void DoFileUpload(String absolutePath) {
+//            HttpFileUpload(apiUrl, "", absolutePath);
+            FileUpload(port, ip, " ", absolutePath);
+
+        }
+
+
+        public void FileUpload(int port, String ip, String params, String fileName) { //param은 서버로 전송하는 숫자인건가..? 그럼 mosaic와 composite를 구별할 수 있지 않을까?
+            try {
+
+                String twoHyphens = "-";
+
+                Log.d("연결", "접속 시작");
+                FileInputStream mFileInputStream = new FileInputStream(fileName);
+                
+
+                Socket socket = new Socket(ip, port);
+                Log.w("서버 접속됨", "서버 접속됨");
+                DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+
+                //dos.writeUTF("-");
+
+                Log.d("연결", "보낼 파일 준비");
+                int bytesAvailable = mFileInputStream.available();
+                int maxBufferSize = 1024;
+                int bufferSize = Math.min(bytesAvailable, maxBufferSize);
+
+                byte[] buffer = new byte[bufferSize];
+                int bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
+
+                Log.d("Test", "image byte is " + bytesRead);
+
+                // read image
+                while (bytesRead > 0) {
+                    dos.write(buffer, 0, bufferSize);
+                    bytesAvailable = mFileInputStream.available();
+                    bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                    bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
+                }
+
+                Log.d("전송" , "전송완료");
+
+                //dos.writeUTF("모자이크");
+
+                dos.close();
+                socket.close();
+
+
+            } catch (Exception e) {
+                Log.d("Test", "exception " + e.getMessage());
+                // TODO: handle exception
+            }
+        }
+
+
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
-        public void run()  {
+        public void run() {
             StringBuffer sb = new StringBuffer();
             Log.d("버튼 눌림", "버튼 눌림");
             try {
                 Log.d("서버", "접속중");
-                String urlString = "http://192.168.0.6:9999/server.py"; //.py 돌아가는 jupyter notebook 주소 입력
+                //String urlString = "https://172.16.26.172:9999/darame_server.ipynb"; //서버에 전송할 API URL(?)
                 String params = "";
                 Intent intent = getIntent();
-                Uri receiveUri= intent.getParcelableExtra("image");
+                Uri receiveUri = intent.getParcelableExtra("image");
                 Log.d("보낼 사진", "받아옴");
                 //String fileName = getPathFromUri(receiveUri) +"/"+ getFileName(receiveUri);
                 Log.d("파일이름", receiveUri.getPath());
-                //String fileName = "/data/data/com.example.servertest3/files/test.txt";
-                URL connectUrl = new URL(urlString);
-                Log.d("연결", "활성화");
 
-                try {
-                    // 파일을 바이트단위로 읽어와 보냄
-                    File sourceFile = new File(receiveUri.getPath());
-                    Log.d("사진", "생성");
-                    DataOutputStream dos;
-                    FileInputStream mFileInputStream = new FileInputStream(sourceFile);
-                    Log.d("사진", "스트림에전송");
-                    // 통신에 필요한 것들 먼저 설정
-                    HttpURLConnection conn = (HttpURLConnection) connectUrl.openConnection();
-                    conn.setDoInput(true);
-                    conn.setDoOutput(true);
-                    conn.setUseCaches(false);
-                    conn.setRequestMethod("POST");
-                    conn.setRequestProperty("Connection", "Keep-Alive");
-                    conn.setRequestProperty("ENCTYPE", "multipart/form-data");
-                    conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-                    conn.setRequestProperty("new_file", String.valueOf(receiveUri));
-                    Log.d("사진", "스트림에전송2");
-                    // 프로토콜 규칙대로 먼저 적어주고, 데이터 전송함.
-                    dos = new DataOutputStream(conn.getOutputStream());
-                    dos.writeBytes(twoHyphens + boundary + lineEnd);
-                    dos.writeBytes("Content-Disposition: form-data; name=\"new_file\";filename=\"" + String.valueOf(receiveUri) + "\"" + lineEnd);
-                    dos.writeBytes(lineEnd);
-                    Log.d("사진", "스트림에전송3");
-                    // 파일 내의 데이터를 바이트단위로 읽어와 전송
-                    int bytesAvailable = mFileInputStream.available();
-                    int maxBufferSize = 1024 * 1024;
-                    int bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                    byte[] buffer = new byte[bufferSize];
-                    int bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
-
-                    while (bytesRead > 0) {
-                        dos.write(buffer, 0, bufferSize);
-                        bytesAvailable = mFileInputStream.available();
-                        bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                        bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
-                    }
-
-                    // 데이터 끝남 표시
-                    dos.writeBytes(lineEnd);
-                    dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
-                    mFileInputStream.close();
-
-                    dos.flush();
-
-                    if (conn.getResponseCode() == 200) {
-                        Log.d("전송", "전송잘됨");
-                    }
-
-                    // stream 닫음
-                    mFileInputStream.close();
-                    dos.close();
-
-                } catch (Exception e) {
-                    Log.d("오류", "데이터전송오류");
-                }
+                //절대경로를 획득
+                Cursor c = getContentResolver().query(Uri.parse(receiveUri.toString()), null, null, null, null);
+                c.moveToNext();
+                String absolutePath = c.getString(c.getColumnIndex(MediaStore.MediaColumns.DATA));
+                Log.d("절대경로", absolutePath);
+                DoFileUpload(absolutePath);
 
             } catch (Exception e) {
-                Log.d("오류", "오류남");
+                e.printStackTrace();
             }
-            handler.sendEmptyMessage(0);    // 핸들러 불러서 UI 처리
+            handler.sendEmptyMessage(0);
         }
-
-
     }
 }
+

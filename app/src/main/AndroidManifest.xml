@@ -18,15 +18,14 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_darame2"
         android:label="다람이"
         android:roundIcon="@mipmap/ic_launcher_darame_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity android:name=".CameraActivity" />
         <activity android:name=".SaveActivity" />
         <activity android:name=".SegmentationActivity" />
