@@ -1,7 +1,10 @@
 package com.example.daram;
 
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -16,6 +19,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -32,6 +36,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -48,6 +53,7 @@ public class TestActivity extends AppCompatActivity implements ActivityCompat.On
     private TextView mConnectionStatus;
     private EditText mInputEditText;
 
+
     ConnectedTask mConnectedTask = null;
     static BluetoothAdapter mBluetoothAdapter;
     private String mConnectedDeviceName = null;
@@ -60,6 +66,8 @@ public class TestActivity extends AppCompatActivity implements ActivityCompat.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         mLayout = findViewById(R.id.layout_test);
+        ImageView img_view;
+        img_view = (ImageView)findViewById(R.id.img_view);
 
 
         Button sendButton = (Button) findViewById(R.id.send_button);
@@ -283,7 +291,6 @@ public class TestActivity extends AppCompatActivity implements ActivityCompat.On
 
 
     private class ConnectedTask extends AsyncTask<Void, String, Boolean> {
-
         private InputStream mInputStream = null;
         private OutputStream mOutputStream = null;
         private BluetoothSocket mBluetoothSocket = null;
@@ -499,9 +506,39 @@ public class TestActivity extends AppCompatActivity implements ActivityCompat.On
             }
         }else if ( requestCode == GET_GALLERY_IMAGE){
             sendPicture(data.getData());
+//            Drawable drawable = getResources().getDrawable(R.drawable.result);
 
+//            try {
+//                ReceivePicture();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
+//    private void ReceivePicture() throws IOException {
+//        sendMessage("Receive");
+//        DataInputStream dis = new DataInputStream(mConnectedTask.mInputStream);
+//        FileOutputStream fos = new FileOutputStream("C:/Users/sohyeon/AndroidStudioProjects/darame/app/src/main/res/result.jpg");
+//        byte[] buffer = new byte[4096];
+//
+//        int read = 0;
+//        int totalRead = 0;
+//
+//        while((read = dis.read(buffer)) > 0) {
+//            totalRead += read;
+//
+////            System.out.println("read " + totalRead + "/" + size + "  bytes.");
+//
+//            fos.write(buffer, 0, read);
+//
+//            int size=168784;
+//            if ( totalRead >= size){
+//                Log.d("이제끝!","이미지전송끝");
+//                break;
+//            }
+//        }
+//
+//    }
 
     private void sendPicture(Uri imgUri) {
 
