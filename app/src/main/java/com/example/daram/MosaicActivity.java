@@ -138,7 +138,7 @@ public class MosaicActivity extends AppCompatActivity {
 
             } catch (Exception e) {
                 Log.d("Test", "exception " + e.getMessage());
-                // TODO: handle exception
+
             }
         }
 
