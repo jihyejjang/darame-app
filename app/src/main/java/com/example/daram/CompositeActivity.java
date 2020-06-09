@@ -22,6 +22,14 @@ public class CompositeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_composite);
 
+        Button button=(Button)findViewById(R.id.next);
+        button.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent_next=new Intent(getApplicationContext(),SaveActivity.class);
+                startActivity(intent_next);
+            }
+        });
+
         imageview1 = (ImageView)findViewById(R.id.imageView1);
         imageview2 = (ImageView)findViewById(R.id.imageView2);
 

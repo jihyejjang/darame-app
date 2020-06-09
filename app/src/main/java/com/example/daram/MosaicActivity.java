@@ -52,13 +52,6 @@ public class MosaicActivity extends AppCompatActivity {
             }
         });
 
-        Button button2 = (Button) findViewById(R.id.newActivity2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SaveActivity.class);
-                startActivity(intent);
-            }
-        });
 
         Button send_btn = (Button) findViewById(R.id.newActivity3);
         send_btn.setOnClickListener(new View.OnClickListener() {
@@ -73,13 +66,13 @@ public class MosaicActivity extends AppCompatActivity {
 
     class mosaicThread extends Thread {
 
-        private String ip = "172.16.26.172";            // IP : .py 돌아가는 python server ip 입력 (Cmd -> ipconfig)
+        private String ip = "172.16.24.193";            // IP : .py 돌아가는 python server ip 입력 (Cmd -> ipconfig)
         private int port = 9999;                          // port 번호 : 9999고정
 
 
         @SuppressLint("HandlerLeak")
         Handler handler = new Handler() {
-            @Override
+        @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
                 Toast.makeText(MosaicActivity.this, "완료", Toast.LENGTH_SHORT).show();

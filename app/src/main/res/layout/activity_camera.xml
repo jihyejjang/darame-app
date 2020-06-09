@@ -7,16 +7,19 @@
     android:gravity="center"
     tools:context=".CameraActivity">
 
-    <Button
-        android:id="@+id/home"
-        android:text="HOME"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/img_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="200pt"/>
+
+    <Button
+        android:id="@+id/home"
+        android:text="HOME"
+        android:background="@drawable/btn_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"/>
 
 
 </LinearLayout>

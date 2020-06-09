@@ -29,4 +29,13 @@
         app:srcCompat="@drawable/gray"
         tools:ignore="VectorDrawableCompat" />
 
+    <Button
+        android:id="@+id/next"
+        android:text="NEXT"
+        android:background="@drawable/btn_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"/>
+
 </LinearLayout>

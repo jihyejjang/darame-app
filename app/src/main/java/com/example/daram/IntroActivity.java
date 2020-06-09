@@ -38,7 +38,7 @@ public class IntroActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //connect();
-                Intent intent = new Intent (getApplicationContext(), TestActivity.class);
+                Intent intent = new Intent (getApplicationContext(), MainActivity.class);
                 startActivity(intent); //다음화면으로 넘어감
                 finish();
                 Log.d("인트로", "어플 실행");
