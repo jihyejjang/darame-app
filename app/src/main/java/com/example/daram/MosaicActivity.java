@@ -4,8 +4,11 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,9 +21,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.Socket;
+import java.util.zip.CheckedOutputStream;
 
 public class MosaicActivity extends AppCompatActivity {
     @Override
@@ -42,6 +53,13 @@ public class MosaicActivity extends AppCompatActivity {
         Log.d("사진 선택함", "사진 선택");
         ImageView imageView1 = (ImageView) findViewById(R.id.imageView1);
         imageView1.setImageURI(receiveUri);
+
+//        ImageView imageView2 = (ImageView) findViewById(R.id.imageView2);
+//        imageView2.setImageBitmap(bit);
+
+        Log.d("수신" , "마스크 사진 디스플레이");
+
+
 
 
         Button button = (Button) findViewById(R.id.newActivity);
@@ -73,7 +91,7 @@ public class MosaicActivity extends AppCompatActivity {
 
     class mosaicThread extends Thread {
 
-        private String ip = "172.16.26.172";            // IP : .py 돌아가는 python server ip 입력 (Cmd -> ipconfig)
+        private String ip = "172.16.24.239";            // IP : .py 돌아가는 python server ip 입력 (Cmd -> ipconfig)
         private int port = 9999;                          // port 번호 : 9999고정
 
 
@@ -82,9 +100,28 @@ public class MosaicActivity extends AppCompatActivity {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-                Toast.makeText(MosaicActivity.this, "완료", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MosaicActivity.this, "모자이크 하지 않을 얼굴을 터치하세요:)", Toast.LENGTH_SHORT).show();
             }
         };
+
+        private Bitmap displayImg(InputStream in) throws IOException
+        {
+            Log.d("수신" , "사진 수신 준비");
+
+            BufferedInputStream bis = new BufferedInputStream(in);
+
+            Bitmap bit = BitmapFactory.decodeStream(bis);
+
+
+            Log.d("수신" , "사진 받아옴");
+
+
+            in.close();
+            bis.close();
+
+            return bit;
+
+        }
 
 
 
@@ -102,7 +139,7 @@ public class MosaicActivity extends AppCompatActivity {
 
                 Log.d("연결", "접속 시작");
                 FileInputStream mFileInputStream = new FileInputStream(fileName);
-                
+
 
                 Socket socket = new Socket(ip, port);
                 Log.w("서버 접속됨", "서버 접속됨");
@@ -130,9 +167,19 @@ public class MosaicActivity extends AppCompatActivity {
 
                 Log.d("전송" , "전송완료");
 
-                //dos.writeUTF("모자이크");
+                InputStream in = socket.getInputStream();
 
                 dos.close();
+
+                Bitmap bit = displayImg(in);
+
+                Intent intent = new Intent(getApplicationContext(), MosaicActivity2.class);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bit.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                intent.putExtra("image",byteArray);
+                startActivity(intent);
+
                 socket.close();
 
 
@@ -141,6 +188,8 @@ public class MosaicActivity extends AppCompatActivity {
 
             }
         }
+
+
 
 
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -165,6 +214,7 @@ public class MosaicActivity extends AppCompatActivity {
                 Log.d("절대경로", absolutePath);
                 DoFileUpload(absolutePath);
 
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -172,4 +222,6 @@ public class MosaicActivity extends AppCompatActivity {
         }
     }
 }
+
+
 
