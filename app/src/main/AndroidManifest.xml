@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.daram">
+    <!--인터넷 권한-->
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- 카메라 권한 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -28,9 +30,11 @@
         android:label="다람이"
         android:roundIcon="@mipmap/ic_launcher_darame_round"
         android:supportsRtl="true"
+
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestActivity"></activity>
         <activity android:name=".CameraActivity" />
+        <activity android:name=".Send_img" />
         <activity android:name=".SaveActivity" />
         <activity android:name=".SegmentationActivity" />
         <activity android:name=".GalleryActivity" />

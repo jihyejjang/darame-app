@@ -7,13 +7,6 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.Socket;
-
 
 public class IntroActivity extends AppCompatActivity {
     private String html = "";
@@ -38,7 +31,7 @@ public class IntroActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //connect();
-                Intent intent = new Intent (getApplicationContext(), TestActivity.class);
+                Intent intent = new Intent (getApplicationContext(), MainActivity.class);
                 startActivity(intent); //다음화면으로 넘어감
                 finish();
                 Log.d("인트로", "어플 실행");
