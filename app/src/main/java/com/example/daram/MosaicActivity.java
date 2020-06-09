@@ -1,8 +1,5 @@
 package com.example.daram;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,6 +15,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.net.Socket;
@@ -73,7 +74,7 @@ public class MosaicActivity extends AppCompatActivity {
 
     class mosaicThread extends Thread {
 
-        private String ip = "172.16.26.172";            // IP : .py 돌아가는 python server ip 입력 (Cmd -> ipconfig)
+        private String ip = "172.16.24.163";            // IP : .py 돌아가는 python server ip 입력 (Cmd -> ipconfig)
         private int port = 9999;                          // port 번호 : 9999고정
 
 
