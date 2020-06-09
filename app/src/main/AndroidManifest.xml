@@ -38,6 +38,7 @@
         <activity android:name=".GalleryActivity" />
         <activity android:name=".MosaicActivity" />
         <activity android:name=".CompositeActivity" />
+        <activity android:name=".MosaicActivity2" />
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".IntroActivity">
             <intent-filter>
