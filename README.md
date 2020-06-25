@@ -15,8 +15,10 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
   - 배경합성: **영상1**의 원하는 **마스크**(**전경**부분) + **영상2**의 **배경**
   - 모자이크: 영상에서 **원하는 마스크**를 **제외**한 **나머지** **object**는 **모자이크**처리
 
-- __활용이론(기술)__:
-  - segmentation:
+- __주요 활용기술__:
+  - instance segmentation:
+  - mosaic: 
+  - socket: 
   
 
 //- ~4월: [segmentation 관련 스터디](https://github.com/sohyeon98720/deepLearning_study#%EC%BD%94%EB%93%9C%EC%9A%94%EC%95%BD-segmentation)
