@@ -28,6 +28,9 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
    <img src="https://user-images.githubusercontent.com/47767202/85877683-81832880-b812-11ea-8e65-5108530acd01.png" width="35%">
    
    - 합성 선택
-   <img src="https://user-images.githubusercontent.com/47767202/85877737-965fbc00-b812-11ea-9228-7dae6b4d438d.png" width="70%">
+   <img src="https://user-images.githubusercontent.com/47767202/85877737-965fbc00-b812-11ea-9228-7dae6b4d438d.png" width="90%">
+   
+   - 모자이크 선택
+   <img src="https://user-images.githubusercontent.com/47767202/85877954-e9397380-b812-11ea-83f7-fe004a4896c5.png" width="80%">
 
 //- ~4월: [segmentation 관련 스터디](https://github.com/sohyeon98720/deepLearning_study#%EC%BD%94%EB%93%9C%EC%9A%94%EC%95%BD-segmentation)
