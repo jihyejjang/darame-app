@@ -40,4 +40,4 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
 
 - __화면구성__:
   - 아이콘
-  <img src="" width="40%">
+  <img src="https://user-images.githubusercontent.com/47767202/86211227-fe1a5c00-bbb0-11ea-8670-ad65505f6184.png" width="40%">
