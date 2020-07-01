@@ -16,10 +16,15 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
   - 모자이크: 영상에서 **원하는 마스크**를 **제외**한 **나머지** **object**는 **모자이크**처리
 
 - __주요 활용기술__:
-  - instance segmentation:
-  - mosaic: 
-  - socket: 
+  - instance segmentation: 
+   1. [segmentation 관련 스터디 수행](https://github.com/sohyeon98720/deepLearning_study#%EC%BD%94%EB%93%9C%EC%9A%94%EC%95%BD-segmentation)
   
+  - mosaic: 
+   1. [참고사이트]
+   
+  - socket: 
+   1. [참고사이트]
+    
 - __흐름도__:
   - 초기화면
   <img src="https://user-images.githubusercontent.com/47767202/85769029-95685500-b754-11ea-947f-bd77326e4b8f.png" width="30%">
@@ -33,4 +38,6 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
    - 모자이크 선택
    <img src="https://user-images.githubusercontent.com/47767202/85877954-e9397380-b812-11ea-83f7-fe004a4896c5.png" width="80%">
 
-//- ~4월: [segmentation 관련 스터디](https://github.com/sohyeon98720/deepLearning_study#%EC%BD%94%EB%93%9C%EC%9A%94%EC%95%BD-segmentation)
+- __화면구성__:
+  - 아이콘
+  <img src="" width="40%">
