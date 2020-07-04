@@ -20,7 +20,7 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
    1. [segmentation 관련 스터디 수행](https://github.com/sohyeon98720/deepLearning_study#%EC%BD%94%EB%93%9C%EC%9A%94%EC%95%BD-segmentation)
   
   - mosaic: 
-   1. [참고사이트]
+   1. [참고사이트](https://paiai.tistory.com/13)
    
   - socket: 
    1. [참고사이트]
