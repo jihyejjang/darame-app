@@ -23,7 +23,7 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
    1. [참고사이트](https://paiai.tistory.com/13)
    
   - socket: 
-   1. [참고사이트]
+   1. [참고사이트](https://m.blog.naver.com/rhrkdfus/221406909355)
     
 - __흐름도__:
   - 초기화면
