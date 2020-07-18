@@ -45,13 +45,11 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
 ------------
 
 - __화면구성__:
-  - 아이콘
-  <img src="https://user-images.githubusercontent.com/47767202/87621043-eae3c080-c75a-11ea-9930-17aafbbcb888.png" width="20%">
-<br>
-  - 앱 초기화면 및 메인화면
-  <img src="https://user-images.githubusercontent.com/47767202/87621235-4a41d080-c75b-11ea-9fdd-880df533f36d.png">
-<br>  
+  - 아이콘 <br>
+  <img src="https://user-images.githubusercontent.com/47767202/87621043-eae3c080-c75a-11ea-9930-17aafbbcb888.png" width="20%"> <br>
+  - 앱 초기화면 및 메인화면 <br>
+  <img src="https://user-images.githubusercontent.com/47767202/87621235-4a41d080-c75b-11ea-9fdd-880df533f36d.png"> <br>  
   - 카메라 선택- 카메라 앱에서 촬영 후 화면
-   <img src="https://user-images.githubusercontent.com/47767202/87794754-0dbcc480-c882-11ea-83e8-505ffedfbfc3.png" width="21%">
-   <br>
+  <img src="https://user-images.githubusercontent.com/47767202/87794754-0dbcc480-c882-11ea-83e8-505ffedfbfc3.png" width="21%">
+  <br>
   - 배경 합성 선택 - 사진선택 후 순서대로 전경-배경
