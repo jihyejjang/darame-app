@@ -54,4 +54,4 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
   - 배경 합성 선택 - 사진선택 후 순서대로 전경-배경 <br>
     <img src="https://user-images.githubusercontent.com/47767202/87844477-7ba3d300-c8f8-11ea-919e-d764c6005a85.png"> <br>
   - 모자이크 선택 - 사진선택 후 화면 <br>
-    <img src="https://user-images.githubusercontent.com/47767202/87871559-247f2a80-c9ec-11ea-8b8a-448f3c469225.png">
+    <img src="https://user-images.githubusercontent.com/47767202/87871559-247f2a80-c9ec-11ea-8b8a-448f3c469225.png" width="20%">
