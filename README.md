@@ -51,6 +51,7 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
   <img src="https://user-images.githubusercontent.com/47767202/87621235-4a41d080-c75b-11ea-9fdd-880df533f36d.png" width="42%"> <br>  
   - 카메라 선택- 카메라 앱에서 촬영 후 화면 <br>
   <img src="https://user-images.githubusercontent.com/47767202/87794754-0dbcc480-c882-11ea-83e8-505ffedfbfc3.png" width="20%"> <br>
+  <img src="https://user-images.githubusercontent.com/47767202/88131199-5b855400-cc17-11ea-84b4-6980f7ea44fb.png"> <br>
   - 배경 합성 선택 - 사진선택 후 순서대로 전경-배경 <br>
     <img src="https://user-images.githubusercontent.com/47767202/87844477-7ba3d300-c8f8-11ea-919e-d764c6005a85.png" width="42%"> <br>
   - 모자이크 선택 - 사진선택 후 화면 <br>
