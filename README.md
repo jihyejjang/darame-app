@@ -53,5 +53,5 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
   <img src="https://user-images.githubusercontent.com/47767202/87794754-0dbcc480-c882-11ea-83e8-505ffedfbfc3.png" width="20%"> <br>
   - 배경 합성 선택 - 갤러리에서 사진선택 후 전경-배경화면 - 원하는 마스크선택 후 합성결과화면 <br>
     <img src="https://user-images.githubusercontent.com/47767202/88131199-5b855400-cc17-11ea-84b4-6980f7ea44fb.png" width="62%"> <br>
-  - 모자이크 선택 - 사진선택 후 화면 <br>
-    <img src="https://user-images.githubusercontent.com/47767202/87871559-247f2a80-c9ec-11ea-8b8a-448f3c469225.png" width="20%">
+  - 모자이크 선택 - 갤러리에서 사진선택 후 화면 - 원하는 마스크선택 후 모자이크결과화면 <br>
+    <img src="https://user-images.githubusercontent.com/47767202/88131509-1d3c6480-cc18-11ea-9cf8-75d1755876a4.png" width="40%">
