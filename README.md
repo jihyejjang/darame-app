@@ -54,4 +54,4 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
   - 배경 합성 선택 - 갤러리에서 사진선택 후 전경-배경화면 - 원하는 마스크선택 후 합성결과화면 <br>
     <img src="https://user-images.githubusercontent.com/47767202/88131199-5b855400-cc17-11ea-84b4-6980f7ea44fb.png" width="62%"> <br>
   - 모자이크 선택 - 갤러리에서 사진선택 후 화면 - 원하는 마스크선택 후 모자이크결과화면 <br>
-    <img src="https://user-images.githubusercontent.com/47767202/88131509-1d3c6480-cc18-11ea-9cf8-75d1755876a4.png" width="42%">
+    <img src="https://user-images.githubusercontent.com/47767202/88131679-845a1900-cc18-11ea-9dd2-7fd5a2686b1b.png" width="42%">
