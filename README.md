@@ -1,4 +1,4 @@
-# 다람이 - instance segmentation을 이용한 사진편집어플
+# 다람이 - instance segmentation을 이용한 사진편집앱
 
 ### 교내 상생스터디(2020.04~2020.06)
 
