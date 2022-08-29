@@ -1,19 +1,19 @@
-# 다람이-image segmentation을 이용한 사진편집어플
+# 다람이 - instance segmentation을 이용한 사진편집 앱
 
-### 교내 상생스터디(2020.04~2020.06) + 이후로 더 발전시키는 중
+### 교내 상생스터디(2020.04~2020.06)
 
 -----------------
 
-__주제__: DeepLearning-segmentation을 이용한 사진 편집 어플
+__주제__: instance segmentation을 이용한 사진편집 앱
 
-__제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 배경을 지우거나 블러처리(모자이크)를 해야하는 번거로움이 있음<br>
--> 간편한 배경합성과 모자이크를 수행할 수 있는 **DeepLearning-segmentation** 기술을 적용하게 됨
+__제안배경__: 기존의 사진 편집 앱은 사용자가 수동으로 배경을 지우거나 블러처리(모자이크)를 해야하는 번거로움이 있음<br>
+-> 간편한 배경합성과 모자이크를 수행할 수 있는 **instance segmentation** 기술을 적용하게 됨
 
 ------------
 
 - __기능__: 
-  - 배경합성: **영상1**의 원하는 **마스크**(**전경**부분) + **영상2**의 **배경**
-  - 모자이크: 영상에서 **원하는 마스크**를 **제외**한 **나머지** **object**는 **모자이크**처리
+  - **배경합성**: **영상1**의 원하는 **마스크**(**전경**부분) + **영상2**의 **배경**
+  - **모자이크**: 영상에서 **원하는 마스크**를 **제외**한 **나머지** **object**는 **모자이크**처리
 
 ------------
 
@@ -45,11 +45,13 @@ __제안배경__: 기존의 사진 편집 어플은 사용자가 수동으로 �
 ------------
 
 - __화면구성__:
-  - 아이콘
-  <img src="https://user-images.githubusercontent.com/47767202/87621043-eae3c080-c75a-11ea-9930-17aafbbcb888.png" width="20%">
-<br>
-  - 앱 초기화면 및 메인화면
-  <img src="https://user-images.githubusercontent.com/47767202/87621235-4a41d080-c75b-11ea-9fdd-880df533f36d.png">
-<br>  
-  - 카메라 선택- 카메라 앱에서 촬영 후 화면
-   <img src="https://user-images.githubusercontent.com/47767202/87794754-0dbcc480-c882-11ea-83e8-505ffedfbfc3.png" width="20%">
+  - 아이콘 <br>
+  <img src="https://user-images.githubusercontent.com/47767202/87621043-eae3c080-c75a-11ea-9930-17aafbbcb888.png" width="20%"> <br>
+  - 앱 초기화면 및 메인화면 <br>
+  <img src="https://user-images.githubusercontent.com/47767202/87621235-4a41d080-c75b-11ea-9fdd-880df533f36d.png" width="42%"> <br>  
+  - 카메라 선택- 카메라 앱에서 촬영 후 화면 <br>
+  <img src="https://user-images.githubusercontent.com/47767202/87794754-0dbcc480-c882-11ea-83e8-505ffedfbfc3.png" width="20%"> <br>
+  - 배경 합성 선택 - 갤러리에서 사진선택 후 전경-배경화면 - 원하는 마스크선택 후 합성결과화면 <br>
+    <img src="https://user-images.githubusercontent.com/47767202/88131199-5b855400-cc17-11ea-84b4-6980f7ea44fb.png" width="62%"> <br>
+  - 모자이크 선택 - 갤러리에서 사진선택 후 화면 - 원하는 마스크선택 후 모자이크결과화면 <br>
+    <img src="https://user-images.githubusercontent.com/47767202/88131744-a5226e80-cc18-11ea-85c3-5f644c9b51e5.png" width="42%">
